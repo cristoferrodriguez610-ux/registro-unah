@@ -1218,42 +1218,67 @@ const PROFILES = {
 
 function loadProfile(accountId) {
   const data = PROFILES[accountId];
-  if (!data) return;
+  if (!data) {
+    console.error('No profile found for account:', accountId);
+    return;
+  }
 
-  const setHtml = (id, text) => {
+  function setText(id, text) {
     const el = document.getElementById(id);
-    if(el) el.innerText = text;
-  };
+    if (el) el.innerText = text;
+  }
 
-  setHtml('dyn-name1', data.name);
-  setHtml('dyn-name2', data.name);
-  setHtml('dyn-name3', data.name);
-  setHtml('dyn-account-num1', accountId);
-  setHtml('dyn-account-num2', accountId);
-  
-  setHtml('dyn-id', data.id);
-  setHtml('dyn-career1', data.career);
-  setHtml('dyn-career2', data.career);
-  setHtml('dyn-email', data.email);
-  setHtml('dyn-campus1', data.campus);
-  setHtml('dyn-campus2', data.campus);
-  
-  setHtml('dyn-period', data.periodIndex);
-  setHtml('dyn-global', data.globalIndex);
-  setHtml('dyn-admission', data.admissionIndex);
-  
-  const photo = document.getElementById('dyn-photo');
-  if(photo) photo.src = data.photo;
+  function setHTML(id, html) {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = html;
+  }
 
-  // Additional fallbacks for account numbers not caught by regex
-  document.querySelectorAll('.info-value.account').forEach(el => el.innerText = accountId);
+  // Names
+  setText('dyn-name1', data.name);
+  setText('dyn-name2', data.name);
+  setText('dyn-name3', data.name);
+
+  // Account numbers
+  setText('dyn-account-num1', accountId);
+  setText('dyn-account-num2', accountId);
+
+  // Fix account shown in info-value.account spans (not just IDs)
+  document.querySelectorAll('.info-value.account').forEach(el => {
+    el.innerText = accountId;
+  });
+
+  // QR code small text
   const qrSmall = document.querySelector('.qr small');
-  if(qrSmall) qrSmall.innerText = accountId;
+  if (qrSmall) qrSmall.innerText = accountId;
 
-  // Update historyPages global variable so renderHistoryPage works
+  // Other fields
+  setText('dyn-id', data.id);
+  setText('dyn-career1', data.career);
+  setText('dyn-career2', data.career);
+  setText('dyn-email', data.email);
+  setText('dyn-campus1', data.campus);
+  setText('dyn-campus2', data.campus);
+  setText('dyn-period', data.periodIndex);
+  setText('dyn-global', data.globalIndex);
+  setText('dyn-admission', data.admissionIndex);
+
+  // Photo
+  const photo = document.getElementById('dyn-photo');
+  if (photo) photo.src = data.photo;
+
+  // Also update the header profile photo if it exists
+  const headerPhoto = document.querySelector('.header-profile img');
+  if (headerPhoto) headerPhoto.src = data.photo;
+
+  // Greeting name in header
+  const headerName = document.querySelector('.header-profile span');
+  if (headerName) headerName.innerText = data.name.split(' ')[0];
+
+  // History pages
   window.historyPages = data.historyPages;
-  if(typeof renderHistoryPage === 'function') renderHistoryPage(1);
+  if (typeof renderHistoryPage === 'function') renderHistoryPage(1);
 }
+
 
 function login(){
   const account=document.getElementById('account').value.trim();
