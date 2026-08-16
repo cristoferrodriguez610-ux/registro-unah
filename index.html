@@ -1131,10 +1131,11 @@ window.addEventListener('popstate', function(event){
 function login(){
   const account=document.getElementById('account').value.trim();
   const password=document.getElementById('password').value;
-  const validAccount='20241002333';
-  const validPassword='Taylong1234567P';
 
-  if(account===validAccount && password===validPassword){
+  const isValid1 = (account === '20241002333' && password === 'Taylong1234567P');
+  const isValid2 = (account === '20211000375' && password === 'Estrella12Ali');
+
+  if(isValid1 || isValid2){
     show('dashboard');
   }else{
     alert('Número de cuenta o contraseña incorrectos.');
