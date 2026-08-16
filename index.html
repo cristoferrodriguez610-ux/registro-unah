@@ -1159,30 +1159,39 @@ function loadProfile(accountId) {
   const data = PROFILES[accountId];
   if (!data) return;
 
-  // Update DOM elements
-  document.getElementById('dyn-name1').innerText = data.name;
-  document.getElementById('dyn-name2').innerText = data.name;
-  document.getElementById('dyn-name3').innerText = data.name;
-  document.getElementById('dyn-account1').innerText = data.name; // Wait, account name? No, account number
-  document.getElementById('dyn-account-num1').innerText = accountId;
-  document.getElementById('dyn-account-num2').innerText = accountId;
+  const setHtml = (id, text) => {
+    const el = document.getElementById(id);
+    if(el) el.innerText = text;
+  };
+
+  setHtml('dyn-name1', data.name);
+  setHtml('dyn-name2', data.name);
+  setHtml('dyn-name3', data.name);
+  setHtml('dyn-account-num1', accountId);
+  setHtml('dyn-account-num2', accountId);
   
-  document.getElementById('dyn-id').innerText = data.id;
-  document.getElementById('dyn-career1').innerText = data.career;
-  document.getElementById('dyn-career2').innerText = data.career;
-  document.getElementById('dyn-email').innerText = data.email;
-  document.getElementById('dyn-campus1').innerText = data.campus;
-  document.getElementById('dyn-campus2').innerText = data.campus;
+  setHtml('dyn-id', data.id);
+  setHtml('dyn-career1', data.career);
+  setHtml('dyn-career2', data.career);
+  setHtml('dyn-email', data.email);
+  setHtml('dyn-campus1', data.campus);
+  setHtml('dyn-campus2', data.campus);
   
-  document.getElementById('dyn-period').innerText = data.periodIndex;
-  document.getElementById('dyn-global').innerText = data.globalIndex;
-  document.getElementById('dyn-admission').innerText = data.admissionIndex;
+  setHtml('dyn-period', data.periodIndex);
+  setHtml('dyn-global', data.globalIndex);
+  setHtml('dyn-admission', data.admissionIndex);
   
-  document.getElementById('dyn-photo').src = data.photo;
-  
+  const photo = document.getElementById('dyn-photo');
+  if(photo) photo.src = data.photo;
+
+  // Additional fallbacks for account numbers not caught by regex
+  document.querySelectorAll('.info-value.account').forEach(el => el.innerText = accountId);
+  const qrSmall = document.querySelector('.qr small');
+  if(qrSmall) qrSmall.innerText = accountId;
+
   // Update historyPages global variable so renderHistoryPage works
   window.historyPages = data.historyPages;
-  renderHistoryPage(1);
+  if(typeof renderHistoryPage === 'function') renderHistoryPage(1);
 }
 
 function login(){
