@@ -814,9 +814,29 @@ button{cursor:pointer}
   <header class="dipp-header"><div class="dipp-logo"><span class="logo-box">◆</span><span>UNAH<br><small style="font-weight:400;color:#8795a0">DIRECCIÓN DE INGRESO PERMANENCIA Y PROMOCIÓN</small></span></div><div class="header-actions"><span class="header-profile"><img id="dyn-header-photo" src="" alt="Foto de perfil" style="width:32px;height:32px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 1px 5px #0002"> <span>Karol Elissa Moli...</span></span><b>UNAH</b> ◐</div></header>
   <main class="dash-main">
     <div class="profile-hero">
-      <div class="id-card id-card-reference" style="background:none; border:none; box-shadow:none; padding:0; overflow:hidden;">
-  <img id="dyn-card-image" class="id-card-reference-image" src="" alt="Carnet estudiantil UNAH" style="width:100%; height:100%; object-fit:contain; border-radius:18px;">
-</div>
+      <div class="id-card">
+        <div class="id-brand">
+          <div class="id-brand-logo">
+            <span class="logo-box" style="font-size:40px; color:#174c79;">◆</span>
+          </div>
+          <div class="id-brand-copy">
+            <strong>UNAH</strong>
+            <small>UNIVERSIDAD NACIONAL<br>AUTÓNOMA DE HONDURAS</small>
+          </div>
+        </div>
+        <div class="id-divider"></div>
+        <div class="id-photo">
+          <img id="dyn-card-photo" src="" alt="Foto">
+        </div>
+        <div class="id-info">
+          <div class="id-label">NOMBRE COMPLETO</div>
+          <div class="id-value" id="dyn-card-name"></div>
+          <div class="id-label">NÚMERO DE CUENTA</div>
+          <div class="id-value" id="dyn-card-account"></div>
+          <div class="id-label">CARRERA</div>
+          <div class="id-value" id="dyn-card-career"></div>
+        </div>
+      </div>
       <div class="google-wallet-btn" style="background:#1362b6; border-radius:12px; padding:15px 20px; margin-bottom:24px; display:flex; align-items:center; justify-content:space-between; cursor:pointer; color:#fff;">
         <div style="display:flex; align-items:center; gap:15px;">
           <div style="width:38px; height:38px; border-radius:10px; background:#2986e0; display:grid; place-items:center;">
@@ -1280,9 +1300,12 @@ function loadProfile(accountId) {
   setText('dyn-global', data.globalIndex);
   setText('dyn-admission', data.admissionIndex);
 
-  // Update the card image
-  const cardImg = document.getElementById('dyn-card-image');
-  if (cardImg) cardImg.src = data.cardImage;
+  // Update the dynamic card data
+  setText('dyn-card-name', data.name);
+  setText('dyn-card-account', accountId);
+  setText('dyn-card-career', data.career);
+  const cardPhoto = document.getElementById('dyn-card-photo');
+  if (cardPhoto) cardPhoto.src = data.photo;
 
   // History section photo
   const histPhoto = document.getElementById('dyn-history-photo');
