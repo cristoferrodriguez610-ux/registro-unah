@@ -17,8 +17,8 @@ const USERS = {
   '20211000375': {
     account: '20211000375',
     name: 'ALICIA MARÍA PÉREZ',
-    career: 'INGENIERÍA EN SISTEMAS',
-    campus: 'UNAH-TEC DANLÍ',
+    career: 'INGENIERÍA CIVIL',
+    campus: 'CIUDAD UNIVERSITARIA',
     email: 'alicia.perez@unah.hn',
     photo: '/luz.jpg',
     globalIndex: 85,
