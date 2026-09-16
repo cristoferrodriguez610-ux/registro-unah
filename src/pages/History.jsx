@@ -1,11 +1,11 @@
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import Header from '../components/Header';
 
 import { useAuth } from '../context/AuthContext';
 
 export default function History() {
   const { currentUser } = useAuth();
-  if (!currentUser) return <div style={{padding: 20}}>No has iniciado sesión. <Link to="/login">Volver</Link></div>;
+  if (!currentUser) return <Navigate to="/login" replace />;
   return (
     <div className="screen active">
 

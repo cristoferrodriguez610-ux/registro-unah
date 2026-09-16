@@ -28,13 +28,16 @@ const USERS = {
 };
 
 export function AuthProvider({ children }) {
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(() => {
+    const saved = sessionStorage.getItem('unah_user');
+    return saved ? JSON.parse(saved) : null;
+  });
 
   const login = (account, password) => {
-    // In a real app we'd check password too. Here we only check the account number.
     const user = USERS[account];
     if (user) {
       setCurrentUser(user);
+      sessionStorage.setItem('unah_user', JSON.stringify(user));
       return true;
     }
     return false;
@@ -42,6 +45,7 @@ export function AuthProvider({ children }) {
 
   const logout = () => {
     setCurrentUser(null);
+    sessionStorage.removeItem('unah_user');
   };
 
   return (
