@@ -20,6 +20,25 @@ export default function Dashboard() {
         <div className="id-brand">
           <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Logo_UNAH.png" alt="UNAH" style={{height: '70px', mixBlendMode: 'multiply'}} />
         </div>
+        
+        <div className="id-photo">
+          <img src={currentUser.photo} alt="Foto" />
+        </div>
+        
+        <div className="id-info">
+          <div className="id-group">
+            <div className="id-label">CUENTA</div>
+            <div className="id-value">{currentUser.account}</div>
+          </div>
+          <div className="id-group">
+            <div className="id-label">NOMBRE</div>
+            <div className="id-value name">{currentUser.name}</div>
+          </div>
+          <div className="id-group">
+            <div className="id-label">ID</div>
+            <div className="id-value">{currentUser.idNumber}</div>
+          </div>
+        </div>
       </div>
 
       <div className="google-wallet-btn" style={{"background":"#1362b6","borderRadius":"12px","padding":"15px 20px","marginBottom":"24px","display":"flex","alignItems":"center","justifyContent":"space-between","cursor":"pointer","color":"#fff"}}>
