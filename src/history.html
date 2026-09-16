@@ -1,0 +1,109 @@
+
+<header class="dipp-header">
+  <div class="dipp-logo"><span class="logo-box">◆</span><span>UNAH<br><small style="font-weight:400;color:#8795a0">DIRECCIÓN DE INGRESO PERMANENCIA Y PROMOCIÓN</small></span></div>
+  <button class="header-pill" onclick="show('dashboard')">Cerrar sesión</button>
+</header>
+
+<main class="page-wrap history-page">
+  <div class="page-head">
+    <div class="breadcrumb"><button class="breadcrumb-home" onclick="show('dashboard')">Inicio</button> / <b>Historial Académico</b></div>
+    <h1>HISTORIAL ACADÉMICO</h1>
+    <p>Consulte su historial de calificaciones y equivalencias</p>
+  </div>
+
+  <div class="history-official">
+    <div class="official-row">
+      <div class="official-icon">▧</div>
+      <div>
+        <h3>¿Necesitas tu historial académico oficial?</h3>
+        <p>Este es tu historial de consulta. Si necesitas el documento oficial certificado para trámites, puedes solicitarlo aquí.</p>
+        <button>▧ &nbsp;Solicitar documento oficial</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="student-history-card">
+    <div class="student-history-title">♙ &nbsp; Información del Estudiante</div>
+    <div class="student-history-body">
+      <img class="history-student-photo" id="dyn-history-photo" src="" alt="Foto del estudiante">
+
+      <div class="student-history-info">
+        <div class="h-info">
+          <label>♙ &nbsp; NO. CUENTA</label>
+          <div class="h-value" id="dyn-account-num1">20241002333</div>
+        </div>
+        <div class="h-info">
+          <label>⌂ &nbsp; CENTRO</label>
+          <div class="h-value"><span id="dyn-campus3">CIUDAD UNIVERSITARIA</span></div>
+        </div>
+        <div class="h-info full">
+          <label>♙ &nbsp; NOMBRE COMPLETO</label>
+          <div class="h-value"><span id="dyn-name3">KAROL ELISSA MOLINA MARTINEZ</span></div>
+        </div>
+        <div class="h-info full">
+          <label>♧ &nbsp; CARRERA</label>
+          <div class="h-value"><span id="dyn-career3">INGENIERIA ELECTRICA INDUSTRIAL</span></div>
+        </div>
+      </div>
+
+      <div class="history-indexes">
+        <div class="history-index">
+          <span>ÍNDICE GLOBAL</span><strong id="dyn-global">73</strong>
+        </div>
+        <div class="history-index period">
+          <span>ÍNDICE PERÍODO</span><strong id="dyn-period">70</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="history-tabs">
+    <button class="history-tab active" onclick="switchHistoryTab(this)">▧ &nbsp; Historial Académico</button>
+    <button class="history-tab" onclick="switchHistoryTab(this)">‹› &nbsp; Equivalencias</button>
+  </div>
+
+  <div class="history-table-card">
+    <div class="history-table-heading">〽 &nbsp; Historial Académico</div>
+    <div style="overflow-x:auto">
+      <table class="history-reference-table">
+        <thead>
+          <tr>
+            <th>CODIGO</th><th>ASIGNATURA</th><th>UV</th><th>SECCION</th>
+            <th>AÑO</th><th>PERIODO</th><th>CALIFICACION</th><th>OBS</th>
+          </tr>
+        </thead>
+        <tbody id="historyRows"></tbody>
+      </table>
+    </div>
+    <div class="history-pagination" id="historyPagination"></div>
+  </div>
+
+  <footer class="history-footer">
+    <div class="footer-brand">◆ &nbsp; UNAH·DIPP</div>
+    <p>Dirección de Ingreso, Permanencia y Promoción — Universidad Nacional Autónoma de Honduras.</p>
+    <div class="history-footer-grid">
+      <div>
+        <strong>ACCESOS RÁPIDOS</strong>
+        Sistema de pregrado<br>
+        Sistema de posgrado<br>
+        Campus Virtual<br>
+        Administración DIPP<br>
+        Políticas de privacidad
+      </div>
+      <div>
+        <strong>CONTACTO</strong>
+        ⌖ &nbsp; Ciudad Universitaria<br>
+        Tegucigalpa, M.D.C. Honduras<br><br>
+        <strong>ASESORÍA Y ATENCIÓN</strong>
+        <span class="gold">soportematriculadipp@unah.edu.hn<br>2216–3002</span><br><br>
+        <strong>CALIFICACIONES</strong>
+        <span class="gold">calificacionesdipp@unah.edu.hn</span><br><br>
+        <strong>ARCHIVO</strong>
+        <span class="gold">archivo.cu5@unah.edu.hn</span>
+      </div>
+    </div>
+    <div class="history-footer-bottom">
+      <span>◉ UNAH</span><span>© 2026 Universidad Nacional Autónoma de Honduras</span>
+    </div>
+  </footer>
+</main>
