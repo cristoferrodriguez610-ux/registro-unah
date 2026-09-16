@@ -752,4 +752,130 @@ button{cursor:pointer}
 .history-table td,
 .history-table td *{
   color:#123f78 !important;
+}/* NEW ID CARD REDESIGN */
+.id-card-new {
+  position: relative;
+  background-color: #fdd22e;
+  background-image: radial-gradient(#d3a612 1px, transparent 1px);
+  background-size: 25px 25px;
+  border-radius: 20px;
+  width: 500px;
+  max-width: 100%;
+  min-height: 300px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  margin-bottom: 24px;
+}
+
+.id-bg-shapes {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23f9a716' d='M65.4,-34.5C78.4,-14.2,78.3,13.7,65.3,34C52.3,54.3,26.1,67,1.8,66C-22.5,65,-45,50.3,-58.5,29.3C-72,8.3,-76.4,-19,-63.9,-39.3C-51.4,-59.6,-25.7,-72.9,-1.2,-72.2C23.3,-71.5,46.5,-56.8,65.4,-34.5Z' transform='translate(180 50) scale(0.9)' opacity='0.7'/%3E%3C/svg%3E") no-repeat top right;
+  background-size: cover;
+  pointer-events: none;
+}
+
+.id-card-new .id-brand {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  z-index: 2;
+}
+
+.id-card-new .id-divider {
+  width: 2px;
+  height: 60px;
+  background: #174c79;
+}
+
+.id-card-new .id-brand-copy {
+  display: flex;
+  flex-direction: column;
+}
+
+.id-card-new .id-brand-copy strong {
+  color: #174c79;
+  font-size: 38px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.id-card-new .id-brand-copy small {
+  color: #174c79;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-top: 3px;
+  letter-spacing: 0.5px;
+}
+
+.id-card-new .id-photo {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 110px;
+  height: 145px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 4px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  z-index: 2;
+}
+
+.id-card-new .id-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.id-card-new .id-info {
+  position: absolute;
+  bottom: 25px;
+  left: 30px;
+  z-index: 2;
+}
+
+.id-card-new .id-label {
+  font-size: 11px;
+  color: #645a27;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+.id-card-new .id-value {
+  font-size: 24px;
+  font-weight: 900;
+  color: #1a1a1a;
+  line-height: 1.1;
+  margin-top: 2px;
+}
+
+.id-card-new .id-value.name {
+  font-size: 19px;
+}
+
+@media(max-width: 600px) {
+  .id-card-new {
+    width: 100%;
+    min-height: 250px;
+  }
+  .id-card-new .id-brand {
+    top: 20px; left: 20px;
+  }
+  .id-card-new .id-brand-copy strong { font-size: 28px; }
+  .id-card-new .id-photo {
+    top: 20px; right: 20px; width: 80px; height: 105px;
+  }
+  .id-card-new .id-info {
+    left: 20px; bottom: 20px;
+  }
+  .id-card-new .id-value { font-size: 18px; }
+  .id-card-new .id-value.name { font-size: 15px; }
 }

@@ -12,29 +12,40 @@ export default function Dashboard() {
   <header className="dipp-header"><div className="dipp-logo"><span className="logo-box">◆</span><span>UNAH<br /><small style={{"fontWeight":"400","color":"#8795a0"}}>DIRECCIÓN DE INGRESO PERMANENCIA Y PROMOCIÓN</small></span></div><div className="header-actions"><span className="header-profile"><img id="dyn-header-photo" src={currentUser.photo} alt="Foto de perfil" style={{"width":"32px","height":"32px","borderRadius":"50%","objectFit":"cover","border":"2px solid #fff","boxShadow":"0 1px 5px #0002"}} /> <span>{currentUser.name.split(' ').slice(0, 2).join(' ')}...</span></span><b>UNAH</b> ◐</div></header>
   <main className="dash-main">
     <div className="profile-hero">
-      <div className="id-card">
+      
+      <div className="id-card-new">
+        <div className="id-bg-shapes"></div>
         <div className="id-brand">
-          <div className="id-brand-logo">
-            <span className="logo-box" style={{"fontSize":"40px","color":"#174c79"}}>◆</span>
+          <div className="id-seal">
+            <svg viewBox="0 0 100 120" fill="#174c79" width="65">
+              <ellipse cx="50" cy="60" rx="45" ry="55" fill="none" stroke="#174c79" strokeWidth="2"/>
+              <ellipse cx="50" cy="60" rx="40" ry="50" fill="none" stroke="#174c79" strokeWidth="1"/>
+              <path d="M25 60 h50 M50 20 v20 M40 40 h20 M35 70 h30 v10 h-30 z" stroke="#174c79" strokeWidth="2"/>
+              <text x="50" y="30" fontSize="10" textAnchor="middle" fill="#174c79" fontFamily="sans-serif">LUCEM ASPICIO</text>
+              <text x="50" y="105" fontSize="12" textAnchor="middle" fill="#174c79" fontFamily="sans-serif">1847</text>
+            </svg>
           </div>
+          <div className="id-divider"></div>
           <div className="id-brand-copy">
             <strong>UNAH</strong>
             <small>UNIVERSIDAD NACIONAL<br />AUTÓNOMA DE HONDURAS</small>
           </div>
         </div>
-        <div className="id-divider"></div>
+        
         <div className="id-photo">
-          <img id="dyn-card-photo" src={currentUser.photo} alt="Foto" />
+          <img src={currentUser.photo} alt="Foto" />
         </div>
+        
         <div className="id-info">
-          <div className="id-label">NOMBRE COMPLETO</div>
-          <div className="id-value" id="dyn-card-name">{currentUser.name}</div>
-          <div className="id-label">NÚMERO DE CUENTA</div>
-          <div className="id-value" id="dyn-card-account">{currentUser.account}</div>
-          <div className="id-label">CARRERA</div>
-          <div className="id-value" id="dyn-card-career">{currentUser.career}</div>
+          <div className="id-label">CUENTA</div>
+          <div className="id-value">{currentUser.account}</div>
+          <div className="id-label">NOMBRE</div>
+          <div className="id-value name">{currentUser.name}</div>
+          <div className="id-label">ID</div>
+          <div className="id-value">{currentUser.idNumber}</div>
         </div>
       </div>
+
       <div className="google-wallet-btn" style={{"background":"#1362b6","borderRadius":"12px","padding":"15px 20px","marginBottom":"24px","display":"flex","alignItems":"center","justifyContent":"space-between","cursor":"pointer","color":"#fff"}}>
         <div style={{"display":"flex","alignItems":"center","gap":"15px"}}>
           <div style={{"width":"38px","height":"38px","borderRadius":"10px","background":"#2986e0","display":"grid","placeItems":"center"}}>

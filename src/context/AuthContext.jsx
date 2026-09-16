@@ -6,6 +6,7 @@ const USERS = {
   '20241002333': {
     account: '20241002333',
     name: 'KAROL ELISSA MOLINA MARTINEZ',
+    idNumber: '0801-2003-12345',
     career: 'INGENIERIA ELECTRICA INDUSTRIAL',
     campus: 'CIUDAD UNIVERSITARIA',
     email: 'karol.molina@unah.hn',
@@ -16,7 +17,8 @@ const USERS = {
   },
   '20211000375': {
     account: '20211000375',
-    name: 'ALICIA MARÍA PÉREZ',
+    name: 'LUZ ALICIA MOLINA MARTINEZ',
+    idNumber: '1208-2002-00068',
     career: 'INGENIERÍA CIVIL',
     campus: 'CIUDAD UNIVERSITARIA',
     email: 'alicia.perez@unah.hn',
