@@ -1,18 +1,22 @@
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 
+import { useAuth } from '../context/AuthContext';
+
 export default function History() {
+  const { currentUser } = useAuth();
+  if (!currentUser) return <div style={{padding: 20}}>No has iniciado sesión. <Link to="/login">Volver</Link></div>;
   return (
     <div className="screen active">
 
 <header className="dipp-header">
   <div className="dipp-logo"><span className="logo-box">◆</span><span>UNAH<br /><small style={{"fontWeight":"400","color":"#8795a0"}}>DIRECCIÓN DE INGRESO PERMANENCIA Y PROMOCIÓN</small></span></div>
-  <button className="header-pill" >Cerrar sesión</button>
+  <Link to="/dashboard"><button className="header-pill">Cerrar sesión</button></Link>
 </header>
 
 <main className="page-wrap history-page">
   <div className="page-head">
-    <div className="breadcrumb"><button className="breadcrumb-home" >Inicio</button> / <b>Historial Académico</b></div>
+    <div className="breadcrumb"><Link to="/dashboard" style={{textDecoration:'none'}}><button className="breadcrumb-home" style={{background:'none', border:0, cursor:'pointer', color:'#114882', padding:0}}>Inicio</button></Link> / <b>Historial Académico</b></div>
     <h1>HISTORIAL ACADÉMICO</h1>
     <p>Consulte su historial de calificaciones y equivalencias</p>
   </div>
@@ -31,33 +35,33 @@ export default function History() {
   <div className="student-history-card">
     <div className="student-history-title">♙ &nbsp; Información del Estudiante</div>
     <div className="student-history-body">
-      <img className="history-student-photo" id="dyn-history-photo" src="" alt="Foto del estudiante" />
+      <img className="history-student-photo" id="dyn-history-photo" src={currentUser.photo} alt="Foto del estudiante" />
 
       <div className="student-history-info">
         <div className="h-info">
           <label>♙ &nbsp; NO. CUENTA</label>
-          <div className="h-value" id="dyn-account-num1">20241002333</div>
+          <div className="h-value" id="dyn-account-num1">{currentUser.account}</div>
         </div>
         <div className="h-info">
           <label>⌂ &nbsp; CENTRO</label>
-          <div className="h-value"><span id="dyn-campus3">CIUDAD UNIVERSITARIA</span></div>
+          <div className="h-value"><span id="dyn-campus3">{currentUser.campus}</span></div>
         </div>
         <div className="h-info full">
           <label>♙ &nbsp; NOMBRE COMPLETO</label>
-          <div className="h-value"><span id="dyn-name3">KAROL ELISSA MOLINA MARTINEZ</span></div>
+          <div className="h-value"><span id="dyn-name3">{currentUser.name}</span></div>
         </div>
         <div className="h-info full">
           <label>♧ &nbsp; CARRERA</label>
-          <div className="h-value"><span id="dyn-career3">INGENIERIA ELECTRICA INDUSTRIAL</span></div>
+          <div className="h-value"><span id="dyn-career3">{currentUser.career}</span></div>
         </div>
       </div>
 
       <div className="history-indexes">
         <div className="history-index">
-          <span>ÍNDICE GLOBAL</span><strong id="dyn-global">73</strong>
+          <span>ÍNDICE GLOBAL</span><strong id="dyn-global">{currentUser.globalIndex}</strong>
         </div>
         <div className="history-index period">
-          <span>ÍNDICE PERÍODO</span><strong id="dyn-period">70</strong>
+          <span>ÍNDICE PERÍODO</span><strong id="dyn-period">{currentUser.periodIndex}</strong>
         </div>
       </div>
     </div>

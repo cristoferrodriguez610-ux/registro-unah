@@ -1,13 +1,17 @@
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
+import { useAuth } from '../context/AuthContext';
 
 export default function Matricula() {
+  const { currentUser } = useAuth();
+  if (!currentUser) return <div style={{padding: 20}}>No has iniciado sesión. <Link to="/login">Volver</Link></div>;
+
   return (
     <div className="screen active">
 
 <header className="dipp-header"><div className="dipp-logo"><span className="logo-box">◆</span><span>UNAH<br /><small style={{"fontWeight":"400","color":"#8795a0"}}>DIRECCIÓN DE INGRESO PERMANENCIA Y PROMOCIÓN</small></span></div><Link to="/dashboard"><button className="header-pill" >Cerrar sesión</button></Link></header>
 <main className="page-wrap">
- <div className="page-head"><div className="breadcrumb">Inicio / Matrícula</div><h1>MATRÍCULA</h1><p>Matrícula de Pregrado para la carrera Ingeniería eléctrica industrial</p></div>
+ <div className="page-head"><div className="breadcrumb">Inicio / Matrícula</div><h1>MATRÍCULA</h1><p>Matrícula de Pregrado para la carrera {currentUser.career}</p></div>
  <div className="enroll-grid">
   <div className="enroll-card"><div className="icon green">＋</div><h3>Adicionar asignatura</h3><p>Agrega nuevas asignaturas a tu matrícula del período actual</p></div>
   <div className="enroll-card"><div className="icon redbg">⊗</div><h3>Cancelar asignatura</h3><p>Cancela las asignaturas de tu matrícula actual</p></div>

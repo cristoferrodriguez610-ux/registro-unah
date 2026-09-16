@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
 import Portal from './pages/Portal';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
@@ -9,16 +10,18 @@ import './index.css';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Portal />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/matricula" element={<Matricula />} />
-        <Route path="/forma03" element={<Forma03 />} />
-        <Route path="/history" element={<History />} />
-      </Routes>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Portal />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/matricula" element={<Matricula />} />
+          <Route path="/forma03" element={<Forma03 />} />
+          <Route path="/history" element={<History />} />
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 }
 

@@ -1,11 +1,15 @@
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 
+import { useAuth } from '../context/AuthContext';
+
 export default function Dashboard() {
+  const { currentUser } = useAuth();
+  if (!currentUser) return <div style={{padding: 20}}>No has iniciado sesión. <Link to="/login">Volver</Link></div>;
   return (
     <div className="screen active">
 
-  <header className="dipp-header"><div className="dipp-logo"><span className="logo-box">◆</span><span>UNAH<br /><small style={{"fontWeight":"400","color":"#8795a0"}}>DIRECCIÓN DE INGRESO PERMANENCIA Y PROMOCIÓN</small></span></div><div className="header-actions"><span className="header-profile"><img id="dyn-header-photo" src="" alt="Foto de perfil" style={{"width":"32px","height":"32px","borderRadius":"50%","objectFit":"cover","border":"2px solid #fff","boxShadow":"0 1px 5px #0002"}} /> <span>Karol Elissa Moli...</span></span><b>UNAH</b> ◐</div></header>
+  <header className="dipp-header"><div className="dipp-logo"><span className="logo-box">◆</span><span>UNAH<br /><small style={{"fontWeight":"400","color":"#8795a0"}}>DIRECCIÓN DE INGRESO PERMANENCIA Y PROMOCIÓN</small></span></div><div className="header-actions"><span className="header-profile"><img id="dyn-header-photo" src={currentUser.photo} alt="Foto de perfil" style={{"width":"32px","height":"32px","borderRadius":"50%","objectFit":"cover","border":"2px solid #fff","boxShadow":"0 1px 5px #0002"}} /> <span>{currentUser.name.split(' ').slice(0, 2).join(' ')}...</span></span><b>UNAH</b> ◐</div></header>
   <main className="dash-main">
     <div className="profile-hero">
       <div className="id-card">
@@ -20,15 +24,15 @@ export default function Dashboard() {
         </div>
         <div className="id-divider"></div>
         <div className="id-photo">
-          <img id="dyn-card-photo" src="" alt="Foto" />
+          <img id="dyn-card-photo" src={currentUser.photo} alt="Foto" />
         </div>
         <div className="id-info">
           <div className="id-label">NOMBRE COMPLETO</div>
-          <div className="id-value" id="dyn-card-name"></div>
+          <div className="id-value" id="dyn-card-name">{currentUser.name}</div>
           <div className="id-label">NÚMERO DE CUENTA</div>
-          <div className="id-value" id="dyn-card-account"></div>
+          <div className="id-value" id="dyn-card-account">{currentUser.account}</div>
           <div className="id-label">CARRERA</div>
-          <div className="id-value" id="dyn-card-career"></div>
+          <div className="id-value" id="dyn-card-career">{currentUser.career}</div>
         </div>
       </div>
       <div className="google-wallet-btn" style={{"background":"#1362b6","borderRadius":"12px","padding":"15px 20px","marginBottom":"24px","display":"flex","alignItems":"center","justifyContent":"space-between","cursor":"pointer","color":"#fff"}}>
@@ -46,9 +50,9 @@ export default function Dashboard() {
         </div>
         <div style={{"fontWeight":"700","color":"#a2cbf7"}}>&gt;</div>
       </div>
-      <div className="welcome"><small>BIENVENIDO DE VUELTA</small><h2><span id="dyn-name1">KAROL ELISSA MOLINA MARTINEZ</span></h2>
-        <div className="chips"><span className="chip">⌁ <span id="dyn-career1">INGENIERIA ELECTRICA INDUSTRIAL</span></span><span className="chip">⌂ <span id="dyn-campus1">CIUDAD UNIVERSITARIA</span></span><span className="chip">✉ <span id="dyn-email">karol.molina@unah.hn</span></span><span className="chip">↗ Campus Virtual</span></div>
-        <div className="indices"><div className="index"><b id="dyn-period">70</b><span>ÍNDICE DEL PERÍODO</span></div><div className="index"><b id="dyn-global">73</b><span>ÍNDICE GLOBAL</span></div><div className="index"><b id="dyn-admission">924</b><span>ÍNDICE ADMISIÓN</span></div></div>
+      <div className="welcome"><small>BIENVENIDO DE VUELTA</small><h2><span id="dyn-name1">{currentUser.name}</span></h2>
+        <div className="chips"><span className="chip">⌁ <span id="dyn-career1">{currentUser.career}</span></span><span className="chip">⌂ <span id="dyn-campus1">{currentUser.campus}</span></span><span className="chip">✉ <span id="dyn-email">{currentUser.email}</span></span><span className="chip">↗ Campus Virtual</span></div>
+        <div className="indices"><div className="index"><b id="dyn-period">{currentUser.periodIndex}</b><span>ÍNDICE DEL PERÍODO</span></div><div className="index"><b id="dyn-global">{currentUser.globalIndex}</b><span>ÍNDICE GLOBAL</span></div><div className="index"><b id="dyn-admission">{currentUser.admissionIndex}</b><span>ÍNDICE ADMISIÓN</span></div></div>
       </div>
     </div>
 
