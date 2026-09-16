@@ -18,7 +18,7 @@ export default function Dashboard() {
         <div className="id-bg-shapes"></div>
         
         <div className="id-brand">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Logo_UNAH.png/500px-Logo_UNAH.png" alt="UNAH" style={{height: '70px', mixBlendMode: 'multiply'}} />
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Logo_UNAH.png" alt="UNAH" style={{height: '70px', mixBlendMode: 'multiply'}} />
         </div>
       </div>
 
