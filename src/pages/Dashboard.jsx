@@ -14,22 +14,11 @@ export default function Dashboard() {
     <div className="profile-hero">
       
       <div className="id-card-new">
+        <div className="id-bg-crosses"></div>
         <div className="id-bg-shapes"></div>
+        
         <div className="id-brand">
-          <div className="id-seal">
-            <svg viewBox="0 0 100 120" fill="#174c79" width="65">
-              <ellipse cx="50" cy="60" rx="45" ry="55" fill="none" stroke="#174c79" strokeWidth="2"/>
-              <ellipse cx="50" cy="60" rx="40" ry="50" fill="none" stroke="#174c79" strokeWidth="1"/>
-              <path d="M25 60 h50 M50 20 v20 M40 40 h20 M35 70 h30 v10 h-30 z" stroke="#174c79" strokeWidth="2"/>
-              <text x="50" y="30" fontSize="10" textAnchor="middle" fill="#174c79" fontFamily="sans-serif">LUCEM ASPICIO</text>
-              <text x="50" y="105" fontSize="12" textAnchor="middle" fill="#174c79" fontFamily="sans-serif">1847</text>
-            </svg>
-          </div>
-          <div className="id-divider"></div>
-          <div className="id-brand-copy">
-            <strong>UNAH</strong>
-            <small>UNIVERSIDAD NACIONAL<br />AUTÓNOMA DE HONDURAS</small>
-          </div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Logo_UNAH.png/320px-Logo_UNAH.png" alt="UNAH" style={{height: '75px', mixBlendMode: 'multiply'}} />
         </div>
         
         <div className="id-photo">
@@ -37,12 +26,18 @@ export default function Dashboard() {
         </div>
         
         <div className="id-info">
-          <div className="id-label">CUENTA</div>
-          <div className="id-value">{currentUser.account}</div>
-          <div className="id-label">NOMBRE</div>
-          <div className="id-value name">{currentUser.name}</div>
-          <div className="id-label">ID</div>
-          <div className="id-value">{currentUser.idNumber}</div>
+          <div className="id-group">
+            <div className="id-label">CUENTA</div>
+            <div className="id-value">{currentUser.account}</div>
+          </div>
+          <div className="id-group">
+            <div className="id-label">NOMBRE</div>
+            <div className="id-value name">{currentUser.name}</div>
+          </div>
+          <div className="id-group">
+            <div className="id-label">ID</div>
+            <div className="id-value">{currentUser.idNumber}</div>
+          </div>
         </div>
       </div>
 
