@@ -18,7 +18,14 @@ export default function Dashboard() {
         <div className="id-bg-shapes"></div>
         
         <div className="id-brand">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Logo_UNAH.png/320px-Logo_UNAH.png" alt="UNAH" style={{height: '75px', mixBlendMode: 'multiply'}} />
+          <div className="id-seal">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Escudo_de_la_UNAH.svg" alt="Escudo UNAH" style={{height: '80px', mixBlendMode: 'multiply'}} />
+          </div>
+          <div className="id-divider"></div>
+          <div className="id-brand-copy">
+            <strong>UNAH</strong>
+            <small>UNIVERSIDAD NACIONAL<br />AUTÓNOMA DE HONDURAS</small>
+          </div>
         </div>
         
         <div className="id-photo">
