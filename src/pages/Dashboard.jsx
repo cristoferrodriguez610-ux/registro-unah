@@ -18,7 +18,7 @@ export default function Dashboard() {
         <div className="id-bg-shapes"></div>
         
         <div className="id-brand">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Escudo_de_la_UNAH.svg/320px-Escudo_de_la_UNAH.svg.png" alt="Escudo UNAH" className="unah-seal" />
+          <img src="/escudo-unah.png" alt="Escudo UNAH" className="unah-seal" />
           <div className="id-divider"></div>
           <div className="id-brand-copy">
             <strong>UNAH</strong>
