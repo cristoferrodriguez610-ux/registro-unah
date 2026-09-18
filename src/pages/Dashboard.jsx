@@ -2,7 +2,6 @@ import { Link, Navigate } from 'react-router-dom';
 import Header from '../components/Header';
 
 import { useAuth } from '../context/AuthContext';
-import escudoUnah from '../assets/escudo-unah.png';
 
 export default function Dashboard() {
   const { currentUser } = useAuth();
@@ -19,7 +18,7 @@ export default function Dashboard() {
         <div className="id-bg-shapes"></div>
         
         <div className="id-brand">
-          <img src={escudoUnah} alt="Escudo UNAH" className="unah-seal" />
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Escudo_de_la_UNAH.svg" alt="Escudo UNAH" className="unah-seal" />
           <div className="id-divider"></div>
           <div className="id-brand-copy">
             <strong>UNAH</strong>
