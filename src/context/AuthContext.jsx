@@ -6,7 +6,7 @@ const USERS = {
   '20241002333': {
     account: '20241002333',
     name: 'KAROL ELISSA MOLINA MARTINEZ',
-    idNumber: '0801-2003-12345',
+    idNumber: '1208-2004-00497',
     career: 'INGENIERIA ELECTRICA INDUSTRIAL',
     campus: 'CIUDAD UNIVERSITARIA',
     email: 'karol.molina@unah.hn',
