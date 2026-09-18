@@ -1,11 +1,22 @@
+import React, { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import Header from '../components/Header';
 
 import { useAuth } from '../context/AuthContext';
+import { HISTORY_BY_STUDENT } from '../data/historyData';
 
 export default function History() {
   const { currentUser } = useAuth();
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+
   if (!currentUser) return <Navigate to="/login" replace />;
+
+  const studentHistory = HISTORY_BY_STUDENT[currentUser.account] || [];
+  const totalPages = Math.ceil(studentHistory.length / itemsPerPage) || 1;
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentItems = studentHistory.slice(startIndex, startIndex + itemsPerPage);
+
   return (
     <div className="screen active">
 
@@ -82,10 +93,42 @@ export default function History() {
             <th>AÑO</th><th>PERIODO</th><th>CALIFICACION</th><th>OBS</th>
           </tr>
         </thead>
-        <tbody id="historyRows"></tbody>
+        <tbody>
+          {currentItems.map((item, idx) => (
+            <tr key={idx}>
+              <td>{item.code}</td>
+              <td>{item.name}</td>
+              <td>{item.uv}</td>
+              <td>{item.section}</td>
+              <td>{item.year}</td>
+              <td>{item.period}</td>
+              <td>{item.grade}</td>
+              <td>{item.obs}</td>
+            </tr>
+          ))}
+        </tbody>
       </table>
     </div>
-    <div className="history-pagination" id="historyPagination"></div>
+    <div className="history-pagination" id="historyPagination">
+      {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+        <button 
+          key={page} 
+          className={currentPage === page ? 'active' : ''} 
+          onClick={() => setCurrentPage(page)}
+          style={{
+            margin: '0 2px',
+            padding: '5px 12px',
+            border: '1px solid #ddd',
+            background: currentPage === page ? '#0066cc' : '#fff',
+            color: currentPage === page ? '#fff' : '#333',
+            cursor: 'pointer',
+            borderRadius: '4px'
+          }}
+        >
+          {page}
+        </button>
+      ))}
+    </div>
   </div>
 
   <footer className="history-footer">
