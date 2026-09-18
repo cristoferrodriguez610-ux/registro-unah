@@ -48,55 +48,65 @@ export const FORMA03_BY_STUDENT = {
   '20211000375': {
     classes: [
       {
-        code: 'DQ101',
-        name: 'DIBUJO I',
-        section: '0700',
-        hi: '0700',
-        hf: '1000',
-        days: 'LuMi',
+        code: 'CIV304',
+        name: 'MECANICA DE FLUIDOS',
+        section: '0800',
+        hi: '0800',
+        hf: '0900',
+        days: 'LuMaMiJu',
         building: 'D1',
-        classroom: '313(PARA DIBUJO)',
-        uv: '2.00',
-        period: '2',
+        classroom: '306',
+        uv: '4.00',
+        period: '3',
         modality: 'Presencial'
       },
       {
-        code: 'FS200',
-        name: 'FISICA GENERAL II',
+        code: 'CIV301',
+        name: 'MECANICA DE MATERIALES II',
+        section: '0900',
+        hi: '0900',
+        hf: '1000',
+        days: 'LuMaMiJuVi',
+        building: 'D1',
+        classroom: '305',
+        uv: '5.00',
+        period: '3',
+        modality: 'Presencial'
+      },
+      {
+        code: 'CIV408',
+        name: 'Organización y Métodos',
         section: '1000',
         hi: '1000',
         hf: '1100',
-        days: 'LuMaMiJuVi',
-        building: 'E1',
-        classroom: '302',
-        uv: '5.00',
-        period: '2',
-        modality: 'Presencial'
-      },
-      {
-        code: 'MM314',
-        name: 'PROGRAMACION',
-        section: '1400',
-        hi: '1400',
-        hf: '1500',
-        days: 'LuMaMi',
-        building: 'C3',
-        classroom: '314',
-        uv: '3.00',
-        period: '2',
+        days: 'LuMaJu',
+        building: 'F1',
+        classroom: '106',
+        uv: '4.00',
+        period: '3',
         modality: 'Presencial'
       }
     ],
     labs: [
       {
-        code: 'FS200',
-        name: 'FISICA GENERAL II',
-        section: '1500',
-        hi: '1500',
-        hf: '1700',
+        code: 'CIV304',
+        name: 'MECANICA DE FLUIDOS',
+        section: '1100',
+        hi: '1100',
+        hf: '1300',
         days: 'Mi',
-        building: 'E1',
-        classroom: '302'
+        building: 'B1',
+        classroom: '201'
+      },
+      {
+        code: 'CIV301',
+        name: 'MECANICA DE MATERIALES II',
+        section: '1000',
+        hi: '1000',
+        hf: '1200',
+        days: 'Vi',
+        building: 'B1',
+        classroom: '201'
       }
     ]
   }
